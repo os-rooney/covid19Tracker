@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@400;700;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Antonio', sans-serif;
+    background-color: #f1ebe0;
+    color: #2B2B2B;
+    overflow-x: hidden;
+    letter-spacing: .005rem;
+    word-spacing: 0.4rem;
+}
+
+header {
+    width: 100vw;
+    text-align: center;
+    padding: 1.5rem 0.8rem;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+.global-info>*:not(:last-of-type) {
+    padding-right: 1.2rem;
+}
+
+.global-info h3 {
+    text-align: center;
+    padding: 1rem;
+}
+
+.global-info {
+    line-height: 1.625rem;
+    letter-spacing: 0.04rem;
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    width: 20vw;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.content {
+    margin-bottom: 5rem;
+}
+
+.green {
+    color: #289672;
+}
+
+.danger {
+    color: #be0000;
+    font-weight: 700;
+}
+
+table {
+    padding-top: 2rem;
+}
+
+thead tr th {
+    text-align: center;
+    background-color: #9A8194;
+    color: #ebe2d4;
+    padding: 1rem;
+}
+
+thead tr>*:not(:last-child) {
+    padding-right: 1rem;
+}
+
+tbody tr th,
+tbody tr td {
+    text-align: center;
+    padding: 0.4rem 1rem;
+}
+
+tr:nth-child(even) {
+    background-color: #e6d8c1;
+}
+
+tr:nth-child(odd) {
+    background-color: #C6A9A3;
+}
