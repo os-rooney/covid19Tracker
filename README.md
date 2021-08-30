@@ -5,7 +5,6 @@ In this app the data from the day before is compared with the current data to ca
 
 ### Continued Development
 
-- Pagination for more usability.
 - Add a search function to find specific countries faster.
 
 ### Useful resources
@@ -17,6 +16,7 @@ In this app the data from the day before is compared with the current data to ca
 - PHP
 - HTML
 - CSS
+- Responsive design with mobile first workflow
 
 ## Author
 
