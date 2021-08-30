@@ -9,15 +9,16 @@ body {
     font-family: 'Antonio', sans-serif;
     background-color: #f1ebe0;
     color: #2B2B2B;
+    width: 100vw;
     overflow-x: hidden;
-    letter-spacing: .005rem;
-    word-spacing: 0.4rem;
+    letter-spacing: .001rem;
+    word-spacing: 0.05rem;
 }
 
 header {
     width: 100vw;
     text-align: center;
-    padding: 1.5rem 0.8rem;
+    padding: 1.5rem 0rem;
 }
 
 h3 {
@@ -35,21 +36,27 @@ h3 {
 
 .global-info {
     line-height: 1.625rem;
-    letter-spacing: 0.04rem;
-    font-size: 1.2rem;
+    letter-spacing: 0.01rem;
+    font-size: 1.3rem;
     padding-top: 1rem;
-    width: 20vw;
+    width: 95vw;
     margin: 0 auto;
 }
 
 .flex {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-around;
+    text-align: center;
+}
+
+.flex>*:not(:last-child) {
+    padding-bottom: 1rem;
 }
 
 .content {
-    margin-bottom: 5rem;
+    margin-bottom: 1rem;
 }
 
 .green {
@@ -61,15 +68,29 @@ h3 {
     font-weight: 700;
 }
 
+.paginationText {
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 1rem;
+}
+
+.pageLink a,
+.pageLink:visited {
+    text-decoration: none;
+}
+
 table {
     padding-top: 2rem;
+    width: 98vw;
 }
 
 thead tr th {
     text-align: center;
     background-color: #9A8194;
     color: #ebe2d4;
-    padding: 1rem;
+    padding: 1rem 0.3rem;
 }
 
 thead tr>*:not(:last-child) {
@@ -79,7 +100,7 @@ thead tr>*:not(:last-child) {
 tbody tr th,
 tbody tr td {
     text-align: center;
-    padding: 0.4rem 1rem;
+    padding: 0.4rem 0rem;
 }
 
 tr:nth-child(even) {
@@ -88,4 +109,39 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
     background-color: #C6A9A3;
+}
+
+.paginationLinks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 1rem;
+}
+
+@media screen and (min-width: 48em) {
+    .flex {
+        flex-direction: row;
+        width: 70vw;
+        margin: 0rem auto;
+    }
+    table {
+        width: 80vw;
+        padding-bottom: 1rem;
+    }
+    .paginationLinks {
+        width: 45vw;
+    }
+}
+
+@media screen and (min-width: 75em) {
+    .flex {
+        width: 50vw;
+    }
+    .paginationLinks {
+        width: 18vw;
+    }
 }

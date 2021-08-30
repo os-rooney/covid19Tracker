@@ -19,6 +19,23 @@
         $formatConfirmed = number_format(strval($total_confirmed), 0, ',', '.');
         $formatDeaths = number_format(strval($total_deaths), 0, ',', '.');
 
+        // pagination
+        $perPage = 20;
+
+        // total number of data
+        $totalCount = count($data);
+
+        // calculate total pages
+        $totalPages = ceil($totalCount / $perPage);
+
+        // check and make sure that the current page is within reasonable boundaries
+        $currentPage = (int) ($_GET['page'] ?? 1);
+        if($currentPage < 1 || $currentPage > $totalPages){
+            $currentPage = 1;
+        }
+        
+        // number of data to skip
+        $offset = $perPage * ($currentPage - 1);
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +79,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
     <div class="flex content">
         <table>
             <thead>
@@ -74,7 +91,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($data as $key => $value): ?>
+                <?php foreach(array_slice($data, $offset, $perPage) as $key => $value): ?>
                     <?php 
                         $increase = number_format(strval($value[$days_count]['confirmed'] - $value[$days_count_prev] ['confirmed']), 0, ',', '.'); 
                         ?>
@@ -95,6 +112,35 @@
                 <?php endforeach;?>
             </tbody>
         </table>
+    </div>
+    <h3 class="paginationText"><?php echo "Seite {$currentPage} von {$totalPages}"; ?></h3>
+    <div class="paginationLinks">
+            <?php 
+            if($currentPage > 1){
+                echo "<a href='index.php?page=". ($currentPage - 1) ."'>&larr; Zurück</a>"; 
+            }?>
+             
+            <?php 
+            $win = 1; // window size
+            for($i = 1; $i <= $totalPages; $i++){
+                if($i > $win && $i < $totalPages - $win && abs($i - $currentPage) > $win){
+                    // jump to the next iteration without executing any code below
+                    echo '. ';
+                    continue;
+                }
+                if($currentPage == $i){
+                    echo "<strong class='green'>{$i}</strong> ";
+                } else {
+                    echo "<a class='pageLink' href='index.php?page=". $i ."'>{$i}</a> ";
+                }
+            }
+            ?>
+
+            <?php 
+            if($currentPage < $totalPages){
+                echo "<a href='index.php?page=". ($currentPage + 1) ."'>Weiter &rarr;</a>"; 
+            }?>
+            
     </div>
 </body>
 </html>
