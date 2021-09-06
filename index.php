@@ -105,12 +105,12 @@
                     $land = trim(strtolower(htmlspecialchars($_POST['land'])));
                     $land = str_replace($remove, "", $land);
                     $land = str_replace(' ', '', $land);
-                    $increase = number_format(strval($value[$days_count]['confirmed'] - $value[$days_count_prev] ['confirmed']), 0, ',', '.'); 
                     foreach($data as $key => $value){
+                        $increase = number_format(strval($value[$days_count]['confirmed'] - $value[$days_count_prev] ['confirmed']), 0, ',', '.');
                         $country = trim(strtolower(htmlspecialchars($key)));
                         $country = str_replace(' ', '', $country);
                         if(str_contains($country, $land)){
-                            if($increase === 0){
+                            if($increase == 0){
                                 $result = '<span class="yellow">--</span>';
                             } else if ($increase > 0) {
                                 $result = '<span class="danger">'. $increase . ' ' .'<i class="fas fa-arrow-up"></i>' ."</span>";
@@ -129,16 +129,15 @@
                     }
                 } else {
                     $land;
-                    $increase = number_format(strval($value[$days_count]['confirmed'] - $value[$days_count_prev] ['confirmed']), 0, ',', '.'); 
-                    if($increase === 0){
+                    foreach(array_slice($data, $offset, $perPage) as $key => $value){
+                        $increase = number_format(strval($value[$days_count]['confirmed'] - $value[$days_count_prev] ['confirmed']), 0, ',', '.'); 
+                    if($increase == 0){
                         $result =  '<span class="yellow">--</span>';
                     } else if ($increase > 0) {
                         $result =  '<span class="danger">'. $increase . ' ' .'<i class="fas fa-arrow-up"></i>' ."</span>";
                     } else {
                         $result =  '<span class="green">'. $increase . ' ' .'<i class="fas fa-arrow-down"></i>' ."</span>";
-                    }
-                    foreach(array_slice($data, $offset, $perPage) as $key => $value){
-                        $increase = number_format(strval($value[$days_count]['confirmed'] - $value[$days_count_prev] ['confirmed']), 0, ',', '.'); 
+                    } 
                         echo '
                         <tr>
                         <th>'. $key .'</th>
