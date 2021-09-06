@@ -48,6 +48,11 @@
      <link rel="stylesheet" href="./style.css">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/f7afecaf16.js" crossorigin="anonymous"></script> 
+    <!-- Proprietary <meta> Tags -->
+    <meta property="og:title" content="Covid 19 Tracker App - Ronios">
+    <meta property="og:description" content="Covid-19 track current infection numbers, search for specific information by country name">
+    <meta property="og:image" content="https://covid.ronios.de/screenshot.jpeg">
+    <meta property="og:url" content="https://covid.ronios.de">
     <title>Covid-19 Tracker</title>
 </head>
 <body>
@@ -86,7 +91,7 @@
             <input type="text" id="land" name="land" placeholder="enter a country"> 
         </form>
     </div>
-    <div class="flex content">
+    <div class="content">
         <table>
             <thead>
                 <tr>
