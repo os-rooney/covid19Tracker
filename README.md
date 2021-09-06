@@ -5,7 +5,7 @@ In this app the data from the day before is compared with the current data to ca
 
 ### Continued Development
 
-- Add a search function to find specific countries faster.
+- Able sorting deaths, total cases in descending or ascending order or sort countries alphabetically.
 
 ### Useful resources
 
